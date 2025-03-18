@@ -55,3 +55,7 @@ Al insertar personas, el sistema verifica si la persona tiene más de 65 años. 
 
 Insertar: Las personas mayores de 65 años se insertan al principio, respetando el orden descendente por edad dentro de este grupo.
 Dequeue: Se elimina a la persona del frente de la cola (FIFO), siempre comenzando con las personas mayores de 65 años si están en el frente.
+
+
+## Conclusión
+Este proyecto permite gestionar y realizar varias operaciones sobre listas de personas, tanto utilizando una lista enlazada ordenada, una lista doblemente enlazada, así como una cola de prioridad para personas mayores de 65 años. La implementación de estas estructuras de datos permite una gestión eficiente de las personas según su edad, con la capacidad de insertar, listar, buscar y eliminar elementos de la lista.
