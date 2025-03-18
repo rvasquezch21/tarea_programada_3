@@ -1,7 +1,8 @@
+# Importes del Programa
 from lista_doblemente_enlazada import ListaDobleOrdenada
 from persona import Persona
 
-# Función para mostrar el menú y permitir al usuario interactuar con las listas
+# Menu del programa que permite al usuario interactuar con las listas
 def menu(lista):
     while True:
         print("\nMenú de opciones:")
@@ -14,7 +15,7 @@ def menu(lista):
         print("7. Buscar persona por apellido")
         print("8. Salir")
 
-        # Solicitar la opción que desea realizar el usuario
+        # Solicitamos la opción que desea realizar el usuario
         opcion = input("Elige una opción (1-8): ")
 
         if opcion == '1':
@@ -67,8 +68,7 @@ def menu(lista):
             print("Opción no válida. Por favor, elige una opción del 1 al 8.")
 
 # Crear una instancia de la lista (simple o doblemente enlazada)
-# lista = ListaEnlazadaOrdenada()  # Usar esta línea para la lista enlazada simple
-lista = ListaDobleOrdenada()  # Usar esta línea para la lista doblemente enlazada
+lista = ListaDobleOrdenada()
 
 # Ejecutamos el menú
 menu(lista)

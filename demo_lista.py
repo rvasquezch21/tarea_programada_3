@@ -2,7 +2,7 @@
 from lista_enlazada import ListaEnlazadaOrdenada
 from persona import Persona
 
-# Función para mostrar el menú y permitir al usuario interactuar con las listas
+# Menu del programa que permite al usuario interactuar con las listas
 def menu(lista):
     while True:
         print("\nMenú de opciones:")
@@ -14,7 +14,7 @@ def menu(lista):
         print("6. Buscar persona por apellido")
         print("7. Salir")
 
-        # Solicitar la opción que desea realizar el usuario
+        # Solicitamos la opción que desea realizar el usuario
         opcion = input("Elige una opción (1-7): ")
 
         if opcion == '1':

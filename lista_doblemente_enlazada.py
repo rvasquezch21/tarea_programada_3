@@ -1,24 +1,24 @@
+# Importes del Programa
 from nodo_lista_doble import Nodo
 
+# Definimos la clase de ListaEnlazadaOrdenada
 class ListaDobleOrdenada:
     def __init__(self):
         self.cabeza = None
         self.cola = None
-        self.tamano = 0  # Variable para mantener el número de elementos en la lista
+        self.tamano = 0  
 
     def insertar(self, persona):
-        # Método para insertar una persona en la lista de manera ordenada por edad (de menor a mayor)
+        # Definimos el metodo por el cual se va a  insertar una persona en la lista
         nuevo_nodo = Nodo(persona)  # Creamos un nuevo nodo con la persona
         if not self.cabeza or self.cabeza.persona.edad > persona.edad:
-            # Si la lista está vacía o la cabeza tiene una edad mayor, insertamos al principio
             nuevo_nodo.siguiente = self.cabeza
             if self.cabeza:
                 self.cabeza.anterior = nuevo_nodo
             self.cabeza = nuevo_nodo
-            if not self.cola:  # Si la lista estaba vacía, el nuevo nodo es también la cola
+            if not self.cola: 
                 self.cola = nuevo_nodo
         else:
-            # Si no, buscamos la posición correcta para insertarlo (de menor a mayor edad)
             actual = self.cabeza
             while actual.siguiente and actual.siguiente.persona.edad < persona.edad:
                 actual = actual.siguiente
@@ -28,7 +28,7 @@ class ListaDobleOrdenada:
                 actual.siguiente.anterior = nuevo_nodo
             actual.siguiente = nuevo_nodo
             nuevo_nodo.anterior = actual
-            if nuevo_nodo.siguiente is None:  # Si lo insertamos al final, actualizamos la cola
+            if nuevo_nodo.siguiente is None:  # Si insertamos el nodo al final, actualizamos la cola
                 self.cola = nuevo_nodo
         self.tamano += 1  # Incrementamos el tamaño de la lista
 
@@ -44,69 +44,66 @@ class ListaDobleOrdenada:
             actual = actual.siguiente
 
     def imprimir_reversa(self):
-        # Método para imprimir todas las personas en la lista desde la cola hasta la cabeza
+        # Definimos el metodo para imprimir la lista
         if self.cola is None:
             print("La lista está vacía.")
             return
         actual = self.cola
         print(f"Total de personas en la lista: {self.tamano}")
         while actual:
-            print(actual.persona)  # Imprimimos la persona en el nodo actual
+            print(actual.persona)
             actual = actual.anterior
 
     def buscar_por_edad(self, edad):
-        # Método para buscar personas por edad
+        # Definimos el metodo para buscar personas por edad
         actual = self.cabeza
         encontrado = False
         while actual:
             if actual.persona.edad == edad:
-                print(actual.persona)  # Imprime la persona si la edad coincide
+                print(actual.persona)  # Devuelve a la persona de la edad buscada
                 encontrado = True
             actual = actual.siguiente
         if not encontrado:
             print(f"No se encontró ninguna persona con la edad {edad}.")
 
     def buscar_por_nombre(self, nombre_buscar):
-        # Método para buscar personas por el nombre (subcadena)
+        # Definimos el metodo para buscar personas por nombre
         actual = self.cabeza
         encontrado = False
         while actual:
             if actual.persona.contiene_nombre(nombre_buscar):
-                print(actual.persona)  # Imprime la persona si el nombre contiene la subcadena
+                print(actual.persona)  # Devuelve a la persona del nombre definido
                 encontrado = True
             actual = actual.siguiente
         if not encontrado:
             print(f"No se encontró ninguna persona con el nombre que contiene '{nombre_buscar}'.")
 
     def buscar_por_apellido(self, apellido_buscar):
-        # Método para buscar personas por apellido (subcadena)
+        # Definimos el metodo para buscar personas por apellido
         actual = self.cabeza
         encontrado = False
         while actual:
             if actual.persona.contiene_apellido(apellido_buscar):
-                print(actual.persona)  # Imprime la persona si el apellido contiene la subcadena
+                print(actual.persona) # Devuelve a la persona del apellido definido
                 encontrado = True
             actual = actual.siguiente
         if not encontrado:
             print(f"No se encontró ninguna persona con el apellido que contiene '{apellido_buscar}'.")
 
     def borrar_por_posicion(self, posicion):
-        # Método para borrar una persona por su posición (índice)
+        # Definimos el metodo para borrar una persona por su posición en la lista
         if posicion < 0 or posicion >= self.tamano:
             print(f"Índice inválido. La lista tiene {self.tamano} elementos.")
             return
 
         if posicion == 0:
-            # Si la posición es 0 (primer elemento), eliminamos la cabeza
             if self.cabeza.siguiente:
                 self.cabeza.siguiente.anterior = None
             self.cabeza = self.cabeza.siguiente
         elif posicion == self.tamano - 1:
-            # Si la posición es la última, eliminamos la cola
             self.cola = self.cola.anterior
             self.cola.siguiente = None
         else:
-            # Si la posición está en el medio, encontramos el nodo y lo eliminamos
             actual = self.cabeza
             for i in range(posicion):
                 actual = actual.siguiente

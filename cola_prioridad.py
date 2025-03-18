@@ -1,10 +1,13 @@
+# Importes del Programa
 from nodo_lista_sencilla import Nodo
 
+# Definimos la clase de la Cola de Prioridad
 class ColaPrioridad:
     def __init__(self):
         self.cabeza = None
         self.tamano = 0
 
+    # Definimos la funcion para agregar personas a la Cola
     def enqueue(self, persona):
         """
         Inserta una persona en la cola de prioridad.
@@ -13,12 +16,9 @@ class ColaPrioridad:
         """
         nuevo_nodo = Nodo(persona)
 
-        # Si la persona tiene más de 65 años
+        # Definimos la prioridad de la Cola para personas de o mayores a 65 años
         if persona.edad > 64:
-            # Si la cola está vacía o la persona debe ir al frente
             if not self.cabeza or self.cabeza.persona.edad < persona.edad:
-                # Si la cola está vacía o la primera persona es más joven,
-                # insertamos al principio
                 nuevo_nodo.siguiente = self.cabeza
                 self.cabeza = nuevo_nodo
             else:
@@ -40,6 +40,7 @@ class ColaPrioridad:
 
         self.tamano += 1
 
+    # Definimos la funcion para sacar personas de la Cola
     def dequeue(self):
         """
         Elimina y devuelve la persona al frente de la cola.
@@ -53,6 +54,7 @@ class ColaPrioridad:
         self.tamano -= 1
         return persona
     
+    # Definimos la funcion para imprimir la Cola
     def imprimir(self):
         if not self.cabeza:
             print("La cola está vacía.")
