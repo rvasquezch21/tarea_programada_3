@@ -1,4 +1,4 @@
-# Clase Persona: Representa a una persona con nombre, apellidos y edad
+# Definimos la clase Persona
 class Persona:
     def __init__(self, nombre, apellido1, apellido2, edad):
         # Inicializamos los atributos de la persona

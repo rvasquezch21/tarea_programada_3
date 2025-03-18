@@ -1,3 +1,4 @@
+# Definimos la Clase Nodo para la lista doblemente enlazada
 class Nodo:
     def __init__(self, persona):
         self.persona = persona  # El valor almacenado en el nodo (persona en este caso)
